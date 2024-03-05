@@ -6,6 +6,7 @@ package v2testcsproto
 import (
 	"fmt"
 	"sync/atomic"
+
 	"github.com/CrowdStrike/csproto"
 )
 
