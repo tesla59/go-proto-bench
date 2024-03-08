@@ -21,3 +21,5 @@ Benchmarks here use our new [WIP Prometheus Remote Write 2.0](https://github.com
 > NOTE2: v1 and v2 refer to Prometheus Remote Write version. You can focus on v2 to see differences between generators.
 
 See early results [here](./prw-bench.results-2023-11-29.txt)
+
+Test result based on Macbook Air M2 macOS 14.3.1 16GB RAM: [here](./prw-bench.results-2024-03-09.txt)
