@@ -1,0 +1,51 @@
+>> comparing BenchmarkPRWSerialize
+goos: darwin
+goarch: arm64
+pkg: github.com/bwplotka/go-proto-bench/prw
+               │   v2.txt    │          v2testcsproto.txt          │           v2testgogo.txt           │         v2testvtproto.txt          │
+               │   sec/op    │    sec/op     vs base               │   sec/op     vs base               │   sec/op     vs base               │
+PRWSerialize-4   468.8µ ± 0%   283.7µ ± 55%  -39.49% (p=0.002 n=6)   294.9µ ± 1%  -37.11% (p=0.002 n=6)   252.6µ ± 0%  -46.13% (p=0.002 n=6)
+
+               │      v2.txt       │          v2testcsproto.txt           │            v2testgogo.txt            │          v2testvtproto.txt           │
+               │ serializedSize/op │ serializedSize/op  vs base           │ serializedSize/op  vs base           │ serializedSize/op  vs base           │
+PRWSerialize-4         794.0k ± 0%         794.0k ± 0%  ~ (p=1.000 n=6) ¹         794.0k ± 0%  ~ (p=1.000 n=6) ¹         794.0k ± 0%  ~ (p=1.000 n=6) ¹
+¹ all samples are equal
+
+               │    v2.txt    │         v2testcsproto.txt          │            v2testgogo.txt            │       v2testvtproto.txt       │
+               │     B/op     │     B/op      vs base              │     B/op       vs base               │     B/op      vs base         │
+PRWSerialize-4   776.0Ki ± 0%   776.0Ki ± 0%  +0.00% (p=0.002 n=6)   1182.2Ki ± 0%  +52.35% (p=0.002 n=6)   776.0Ki ± 0%  ~ (p=1.000 n=6)
+
+               │   v2.txt   │       v2testcsproto.txt       │              v2testgogo.txt              │       v2testvtproto.txt       │
+               │ allocs/op  │ allocs/op   vs base           │   allocs/op    vs base                   │ allocs/op   vs base           │
+PRWSerialize-4   1.000 ± 0%   1.000 ± 0%  ~ (p=1.000 n=6) ¹   2001.000 ± 0%  +200000.00% (p=0.002 n=6)   1.000 ± 0%  ~ (p=1.000 n=6) ¹
+¹ all samples are equal
+>> comparing BenchmarkPRWDeserialize
+goos: darwin
+goarch: arm64
+pkg: github.com/bwplotka/go-proto-bench/prw
+                 │    v2.txt    │         v2testcsproto.txt          │           v2testgogo.txt           │         v2testvtproto.txt          │
+                 │    sec/op    │    sec/op     vs base              │   sec/op     vs base               │   sec/op     vs base               │
+PRWDeserialize-4   1121.2µ ± 0%   1113.4µ ± 0%  -0.69% (p=0.002 n=6)   687.2µ ± 2%  -38.71% (p=0.002 n=6)   489.3µ ± 1%  -56.36% (p=0.002 n=6)
+
+                 │    v2.txt    │         v2testcsproto.txt          │           v2testgogo.txt           │          v2testvtproto.txt          │
+                 │     B/op     │     B/op      vs base              │     B/op      vs base              │     B/op      vs base               │
+PRWDeserialize-4   2.803Mi ± 0%   2.956Mi ± 0%  +5.44% (p=0.002 n=6)   2.661Mi ± 0%  -5.09% (p=0.002 n=6)   1.654Mi ± 0%  -40.99% (p=0.002 n=6)
+
+                 │    v2.txt    │         v2testcsproto.txt          │           v2testgogo.txt            │         v2testvtproto.txt          │
+                 │  allocs/op   │  allocs/op    vs base              │  allocs/op    vs base               │  allocs/op   vs base               │
+PRWDeserialize-4   34.144k ± 0%   36.144k ± 0%  +5.86% (p=0.002 n=6)   22.144k ± 0%  -35.15% (p=0.002 n=6)   8.034k ± 0%  -76.47% (p=0.002 n=6)
+>> comparing BenchmarkPRWDeserializeToBase
+goos: darwin
+goarch: arm64
+pkg: github.com/bwplotka/go-proto-bench/prw
+                       │    v2.txt    │       v2testcsproto.txt       │           v2testgogo.txt           │         v2testvtproto.txt          │
+                       │    sec/op    │    sec/op     vs base         │   sec/op     vs base               │   sec/op     vs base               │
+PRWDeserializeToBase-4   1336.3µ ± 1%   1342.9µ ± 3%  ~ (p=0.065 n=6)   894.4µ ± 1%  -33.06% (p=0.002 n=6)   719.7µ ± 1%  -46.14% (p=0.002 n=6)
+
+                       │    v2.txt    │         v2testcsproto.txt          │           v2testgogo.txt           │          v2testvtproto.txt          │
+                       │     B/op     │     B/op      vs base              │     B/op      vs base              │     B/op      vs base               │
+PRWDeserializeToBase-4   3.538Mi ± 0%   3.691Mi ± 0%  +4.31% (p=0.002 n=6)   3.395Mi ± 0%  -4.03% (p=0.002 n=6)   2.389Mi ± 0%  -32.48% (p=0.002 n=6)
+
+                       │   v2.txt    │         v2testcsproto.txt         │           v2testgogo.txt           │         v2testvtproto.txt          │
+                       │  allocs/op  │  allocs/op   vs base              │  allocs/op   vs base               │  allocs/op   vs base               │
+PRWDeserializeToBase-4   38.15k ± 0%   40.15k ± 0%  +5.24% (p=0.002 n=6)   26.15k ± 0%  -31.46% (p=0.002 n=6)   12.04k ± 0%  -68.45% (p=0.002 n=6)
